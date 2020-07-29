@@ -1,0 +1,19 @@
+{
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.2",
+        "spatie/phpunit-watcher": "^1.22"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "config": {
+        "process-timeout": 2000
+    },
+    "scripts": {
+        "test:watch": "vendor/bin/phpunit-watcher watch < /dev/tty"
+    }
+}

@@ -4,93 +4,100 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use App\Exceptions\GameException;
 use App\Game;
 use PHPUnit\Framework\TestCase;
+
 
 /** @covers Game */
 final class GameTest extends TestCase
 {
     public function testCreateGameInstance(): void
     {
-        $sut = $this->createGame();
+        $game = $this->createGame();
 
-        self::assertInstanceOf(Game::class, $sut);
-    }
-
-    private function createGame(): Game
-    {
-        return new Game();
+        self::assertInstanceOf(Game::class, $game);
     }
 
     /** @dataProvider providePins */
     public function testRollXPins(int $pins, int $expectedScore): void
     {
-        $sut = $this->createGame();
+        $game = $this->createGame();
 
-        $sut->roll($pins);
+        $game->roll($pins);
 
-        self::assertSame($expectedScore, $sut->score());
+        self::assertSame($expectedScore, $game->score());
     }
 
+    /** @return array<string, array<int, int>> */
     public function providePins(): array
     {
         return [
             'roll 0 pins' => [0, 0],
             'roll 1 pin' => [1, 1],
-            'roll many pins' => [2, 2],
+            'roll 2 pins' => [2, 2],
         ];
     }
 
-    public function testRollTooManyPins(): void
+    public function testShowScore(): void
     {
-        $sut = $this->createGame();
+        $game = $this->createGame();
 
-        $this->expectException(GameException::class);
+        $score = $game->score();
 
-        $sut->roll(11);
+        self::assertSame(0, $score);
     }
 
-    /** @dataProvider provideFame */
-    public function testPlayFrame(int $pinsFirstRoll, int $pinsSecondRoll, int $expectedScore): void
-    {
-        $sut = $this->createGame();
+    /** @dataProvider provideFrameRolls */
+    public function testPlayFrame(
+        int $firstPins,
+        int $secondPins,
+        int $expectedScore
+    ): void {
+        $game = $this->createGame();
 
-        $sut->roll($pinsFirstRoll);
-        $sut->roll($pinsSecondRoll);
+        $game->roll($firstPins);
+        $game->roll($secondPins);
 
-        self::assertSame($expectedScore, $sut->score());
+        self::assertSame($expectedScore, $game->score());
     }
 
-    public function provideFame(): array
+    /** @return array<string, array<int, int>> */
+    public function provideFrameRolls(): array
     {
         return [
             'gutter frame' => [0, 0, 0],
-            'roll 0 then 1 pin' => [0, 1, 1],
-            'roll 1 then 0 pins' => [1, 0, 1],
-            'roll 1 then 1 pins' => [1, 1, 2],
+            'roll 0 then 1' => [0, 1, 1],
+            'roll 1 then 1' => [1, 1, 2],
+            'roll 1 then 2' => [1, 2, 3],
+            'roll 2 then 1' => [2, 1, 3],
+            'roll 2 then 2' => [2, 2, 4],
         ];
     }
 
-    public function testPlayGutterGame(): void
+    public function testSpareBonus(): void
     {
-        $sut = $this->createGame();
+        $game = $this->createGame();
 
-        for ($i = 0; $i < 20; $i++) {
-            $sut->roll(0);
-        }
+        $game->roll(5);
+        $game->roll(5);
+        $game->roll(1);
 
-        self::assertSame(0, $sut->score());
+        self::assertSame(12, $game->score());
     }
 
-    public function testPlayPerfectGame(): void
+    public function testStrikeBonus(): void
     {
-        $sut = $this->createGame();
+        $game = $this->createGame();
 
-        for ($i = 0; $i < 12; $i++) {
-            $sut->roll(10);
-        }
+        $game->roll(10);
+        $game->roll(1);
+        $game->roll(1);
 
-        self::assertSame(300, $sut->score());
+        self::assertSame(14, $game->score());
+    }
+
+    private function createGame(): Game
+    {
+        return new Game();
     }
 }

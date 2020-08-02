@@ -7,7 +7,6 @@ namespace App\Tests;
 use App\Game;
 use PHPUnit\Framework\TestCase;
 
-
 /** @covers Game */
 final class GameTest extends TestCase
 {

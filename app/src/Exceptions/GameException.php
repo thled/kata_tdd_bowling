@@ -7,4 +7,5 @@ namespace App\Exceptions;
 use Exception;
 
 final class GameException extends Exception
-{}
+{
+}

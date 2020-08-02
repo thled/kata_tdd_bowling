@@ -27,47 +27,52 @@ final class Game
 
     private function isFrameComplete(int $roll): bool
     {
-        return ($roll % 2) !== 0;
+        return $roll % 2 !== 0;
     }
 
     private function getBonus(int $roll): int
     {
-        if ($this->isStrike($roll))
+        if ($this->isStrike($roll)) {
             return $this->getNext2RollsPins($roll);
+        }
 
-        if ( $this->isSpare($roll))
+        if ($this->isSpare($roll)) {
             return $this->getNextRollPins($roll);
+        }
 
         return 0;
     }
 
     private function isSpare(int $roll): bool
     {
-        if (!$this->isFrameComplete($roll))
+        if (!$this->isFrameComplete($roll)) {
             return false;
+        }
 
-        return ($this->rolls[$roll-1] + $this->rolls[$roll]) === 10;
+        return ($this->rolls[$roll - 1] + $this->rolls[$roll]) === 10;
     }
     
     private function getNextRollPins(int $roll): int
     {
-        if (!$this->existsNextRoll($roll))
+        if (!$this->existsNextRoll($roll)) {
             return 0;
+        }
 
-        return $this->rolls[$roll+1];
+        return $this->rolls[$roll + 1];
     }
 
     private function existsNextRoll(int $roll): bool
     {
-        return array_key_exists($roll+1, $this->rolls);
+        return array_key_exists($roll + 1, $this->rolls);
     }
 
     private function isStrike(int $roll): bool
     {
-        if (!$this->isFrameComplete($roll))
+        if (!$this->isFrameComplete($roll)) {
             return false;
+        }
 
-        return $this->rolls[$roll-1] === 10;
+        return $this->rolls[$roll - 1] === 10;
     }
 
     private function getNext2RollsPins(int $roll): int
@@ -80,14 +85,15 @@ final class Game
 
     private function getRollPinsAfterNextRoll(int $roll): int
     {
-        if (!$this->existsRollAfterNextRoll($roll))
+        if (!$this->existsRollAfterNextRoll($roll)) {
             return 0;
+        }
 
-        return $this->rolls[$roll+2];
+        return $this->rolls[$roll + 2];
     }
 
     private function existsRollAfterNextRoll(int $roll): bool
     {
-        return array_key_exists($roll+2, $this->rolls);
+        return array_key_exists($roll + 2, $this->rolls);
     }
 }

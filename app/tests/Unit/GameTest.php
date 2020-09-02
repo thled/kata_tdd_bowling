@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Tests;
+namespace App\Tests\Unit;
 
 use App\Game;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \Game */
+/** @covers Game */
 final class GameTest extends TestCase
 {
     /** @test */

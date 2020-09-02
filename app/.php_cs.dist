@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types=1);
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__);
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@DoctrineAnnotation' => true,
+        '@PHP56Migration' => true,
+        '@PHP70Migration' => true,
+        '@PHP71Migration' => true,
+        '@PHP73Migration' => true,
+        '@PHPUnit30Migration:risky' => true,
+        '@PHPUnit32Migration:risky' => true,
+        '@PHPUnit35Migration:risky' => true,
+        '@PHPUnit43Migration:risky' => true,
+        '@PHPUnit48Migration:risky' => true,
+        '@PHPUnit50Migration:risky' => true,
+        '@PHPUnit52Migration:risky' => true,
+        '@PHPUnit54Migration:risky' => true,
+        '@PHPUnit55Migration:risky' => true,
+        '@PHPUnit56Migration:risky' => true,
+        '@PHPUnit57Migration:risky' => true,
+        '@PHPUnit60Migration:risky' => true,
+        '@PHPUnit75Migration:risky' => true,
+        '@PSR2' => true,
+        '@PhpCsFixer' => true,
+        '@Symfony' => true,
+        'php_unit_internal_class' => false,
+        'phpdoc_line_span' => ['const' => 'single', 'method' => 'single', 'property' => 'single'],
+        'backtick_to_shell_exec' => false,
+        'class_keyword_remove' => false,
+        'date_time_immutable' => true,
+        'final_class' => true,
+        'final_public_method_for_abstract_class' => true,
+        'final_static_access' => true,
+        'global_namespace_import' => ['import_classes' => true, 'import_constants' => true, 'import_functions' => true],
+        'linebreak_after_opening_tag' => true,
+        'list_syntax' => ['syntax' => 'short'],
+        'mb_str_functions' => true,
+        'no_blank_lines_before_namespace' => false,
+        'no_php4_constructor' => true,
+        'not_operator_with_space' => false,
+        'not_operator_with_successor_space' => false,
+        'nullable_type_declaration_for_default_null_value' => ['use_nullable_type_declaration' => true],
+        'ordered_interfaces' => ['direction' => 'ascend', 'order' => 'alpha'],
+        'php_unit_size_class' => false,
+        'phpdoc_line_span' => single,
+        'self_static_accessor' => true,
+        'simplified_null_return' => true,
+        'static_lambda' => true,
+    ])
+    ->setFinder($finder);

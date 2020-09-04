@@ -12,10 +12,12 @@
 1. Clone this repository: `$ git clone git@github.com:thled/kata_tdd_bowling`
 1. Change to project directory: `$ cd kata_tdd_bowling`
 1. Build and start the docker containers: `$ docker-compose up -d`
+1. Initialize the app: `$ docker-compose exec app composer bootstrap`
 
 ## Usage
 
-- SSH into container: `$ docker-compose exec app bash`
+- SSH into container: `$ docker-compose exec app ash`
+- Run tests in container: `$ composer test`
 - Watch tests in container: `$ composer test:watch`
 
 ## Goal

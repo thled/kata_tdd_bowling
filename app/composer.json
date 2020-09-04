@@ -2,10 +2,8 @@
     "require": {
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^9.2",
-        "spatie/phpunit-watcher": "^1.22",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "spatie/phpunit-watcher": "^1.22"
     },
     "autoload": {
         "psr-4": {
@@ -13,32 +11,21 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "config": {
-        "process-timeout": 2000
-    },
     "scripts": {
         "bootstrap": [
             "@composer install"
         ],
         "ci": [
-            "@lint",
-            "@test",
-            "@phpstan"
+            "@test"
         ],
-        "lint": "@php vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots --dry-run",
-        "fix": "@php vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots",
-        "analyse": "@phpstan",
         "test": "@php vendor/bin/phpunit",
-        "test:watch": "vendor/bin/phpunit-watcher watch < /dev/tty",
+        "test:watch": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/phpunit-watcher watch < /dev/tty"
+        ],
         "unit": "@php vendor/bin/phpunit --testsuite unit",
         "integration": "@php vendor/bin/phpunit --testsuite integration",
         "functional": "@php vendor/bin/phpunit --testsuite functional",
-        "code-coverage": "@php vendor/bin/phpunit --coverage-html coverage",
-        "phpstan": [
-            "@phpstan-src",
-            "@phpstan-tests"
-        ],
-        "phpstan-src": "@php vendor/bin/phpstan analyse --configuration phpstan.neon --no-progress",
-        "phpstan-tests": "@php vendor/bin/phpstan analyse --configuration phpstan-tests.neon --no-progress"
+        "code-coverage": "@php vendor/bin/phpunit --coverage-html coverage"
     }
 }

@@ -9,7 +9,7 @@
     forceCoversAnnotation="true"
     beStrictAboutCoversAnnotation="false"
     beStrictAboutOutputDuringTests="true"
-    beStrictAboutTestsThatDoNotTestAnything="true"
+    beStrictAboutTestsThatDoNotTestAnything="false"
     beStrictAboutTodoAnnotatedTests="true"
     verbose="true"
     >

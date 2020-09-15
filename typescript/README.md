@@ -10,8 +10,15 @@
 ## Installation
 
 1. Clone this repository: `$ git clone git@github.com:thled/kata_tdd_bowling`
-1. Change to project directory: `$ cd kata_tdd_bowling`
-1. Change into the directory of the desired language and continue with the `README.md` there.
+1. Change to TypeScript project directory: `$ cd kata_tdd_bowling/typescript`
+1. Build and start the docker containers: `$ docker-compose up -d`
+1. Initialize the app: `$ docker-compose exec app XXX`
+
+## Usage
+
+- SSH into container: `$ docker-compose exec app ash`
+- Run tests in container: `$ npm test`
+- Watch tests in container: `$ npm test:watch`
 
 ## Goal
 
@@ -32,9 +39,9 @@
 
 Write a class `Game` that has two methods:
 
-- `roll(int $pins): void` is called each time the player rolls a ball.
+- `roll(pins: number): void` is called each time the player rolls a ball.
 The argument is the number of pins knocked down.
-- `score(): int` returns the total score for that game.
+- `score(): number` returns the total score for that game.
 
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: ./LICENSE

@@ -1,5 +1,10 @@
-import { sum } from '../src/game'
+import {Bowling} from '../src/Bowling'
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3)
+test('nothing', () => {
+  expect(true).toBe(true)
+})
+
+test('create bowling game', () => {
+    const game = new Bowling()
+    expect(game).toBeInstanceOf(Bowling)
 })

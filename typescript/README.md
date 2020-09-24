@@ -11,14 +11,15 @@
 
 1. Clone this repository: `$ git clone git@github.com:thled/kata_tdd_bowling`
 1. Change to TypeScript project directory: `$ cd kata_tdd_bowling/typescript`
-1. Build and start the docker containers: `$ docker-compose up`
+1. Build and start the docker containers: `$ docker-compose up -d`
 1. Initialize the app: `$ docker-compose exec app npm run bootstrap`
 
 ## Usage
 
 - SSH into container: `$ docker-compose exec app ash`
-- Run tests in container: `$ npm run test`
-- Watch tests in container: `$ npm run test:watch`
+- Start compiler: `$ npm run compile` (inside container)
+- Run tests: `$ npm run test` (inside container)
+- Watch tests: `$ npm run test:watch` (inside container)
 
 ## Goal
 

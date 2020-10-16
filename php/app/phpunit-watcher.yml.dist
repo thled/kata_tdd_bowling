@@ -8,5 +8,5 @@ notifications:
     failingTests: false
 phpunit:
     binaryPath: vendor/bin/phpunit
-    arguments: '--testsuite=unit'
+    arguments: 'tests'
     timeout: 1800

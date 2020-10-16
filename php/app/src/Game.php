@@ -21,9 +21,9 @@ class Game
             if ($this->isStrike($roll)) {
                 $score += $this->strikeBonus($roll);
                 $roll--;
-            }
-            elseif ($this->isSpare($roll))
+            } elseif ($this->isSpare($roll)) {
                 $score += $this->spareBonus($roll);
+            }
 
             $roll += 2;
         }
@@ -33,20 +33,21 @@ class Game
 
     private function isSpare(int $roll): bool
     {
-        return $this->rolls[$roll] + $this->rolls[$roll+1] === 10;
+        return $this->rolls[$roll] + $this->rolls[$roll + 1] === 10;
     }
 
     private function spareBonus(int $roll): int
     {
-        return $this->rolls[$roll+2];
+        return $this->rolls[$roll + 2];
     }
 
     private function frameScore(int $roll): int
     {
-        if ($this->isStrike($roll))
+        if ($this->isStrike($roll)) {
             return 10;
+        }
 
-        return $this->rolls[$roll] + $this->rolls[$roll+1];
+        return $this->rolls[$roll] + $this->rolls[$roll + 1];
     }
 
     private function isStrike(int $roll): bool
@@ -56,6 +57,6 @@ class Game
 
     private function strikeBonus(int $roll): int
     {
-        return $this->rolls[$roll+1] + $this->rolls[$roll+2];
+        return $this->rolls[$roll + 1] + $this->rolls[$roll + 2];
     }
 }

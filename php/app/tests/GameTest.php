@@ -11,32 +11,15 @@ final class GameTest extends TestCase
 {
     private Game $bowling;
 
+    protected function setUp(): void
+    {
+        $this->bowling = new Game();
+    }
+
     /** @test */
     public function nothing(): void
     {
         self::assertTrue(true);
-    }
-
-    private function rollMany(int $amount, int $pins): void
-    {
-        for ($i = 0; $i < $amount; $i++)
-            $this->bowling->roll($pins);
-    }
-
-    private function rollSpare(): void
-    {
-        $this->bowling->roll(5);
-        $this->bowling->roll(5);
-    }
-
-    private function rollStrike(): void
-    {
-        $this->bowling->roll(10);
-    }
-
-    public function setUp(): void
-    {
-        $this->bowling = new Game();
     }
 
     /** @test */
@@ -76,7 +59,7 @@ final class GameTest extends TestCase
         $this->bowling->roll(1);
         $this->rollMany(17, 0);
 
-        self::assertSame(10+1+1, $this->bowling->score());
+        self::assertSame(10 + 1 + 1, $this->bowling->score());
     }
 
     /** @test */
@@ -87,7 +70,7 @@ final class GameTest extends TestCase
         $this->bowling->roll(1);
         $this->rollMany(16, 0);
 
-        self::assertSame(10+1, $this->bowling->score());
+        self::assertSame(10 + 1, $this->bowling->score());
     }
 
     /** @test */
@@ -95,7 +78,7 @@ final class GameTest extends TestCase
     {
         $this->rollMany(21, 5);
 
-        self::assertSame(10*10+10*5, $this->bowling->score());
+        self::assertSame(10 * 10 + 10 * 5, $this->bowling->score());
     }
 
     /** @test */
@@ -106,7 +89,7 @@ final class GameTest extends TestCase
         $this->bowling->roll(1);
         $this->rollMany(16, 0);
 
-        self::assertSame(10+2+1+1, $this->bowling->score());
+        self::assertSame(10 + 2 + 1 + 1, $this->bowling->score());
     }
 
     /** @test */
@@ -118,7 +101,7 @@ final class GameTest extends TestCase
         $this->bowling->roll(1);
         $this->rollMany(16, 0);
 
-        self::assertSame(10+1+1+1, $this->bowling->score());
+        self::assertSame(10 + 1 + 1 + 1, $this->bowling->score());
     }
 
     /** @test */
@@ -127,5 +110,23 @@ final class GameTest extends TestCase
         $this->rollMany(12, 10);
 
         self::assertSame(300, $this->bowling->score());
+    }
+
+    private function rollMany(int $amount, int $pins): void
+    {
+        for ($i = 0; $i < $amount; $i++) {
+            $this->bowling->roll($pins);
+        }
+    }
+
+    private function rollSpare(): void
+    {
+        $this->bowling->roll(5);
+        $this->bowling->roll(5);
+    }
+
+    private function rollStrike(): void
+    {
+        $this->bowling->roll(10);
     }
 }

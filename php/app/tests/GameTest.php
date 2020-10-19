@@ -72,10 +72,10 @@ final class GameTest extends TestCase
     {
         $this->rollStrike();
         $this->bowling->roll(1);
-        $this->bowling->roll(1);
+        $this->bowling->roll(2);
         $this->rollMany(16, 0);
 
-        self::assertSame(10 + 2 + 1 + 1, $this->bowling->score());
+        self::assertSame(10 + 3 + 1 + 2, $this->bowling->score());
     }
 
     /** @test */
@@ -84,10 +84,10 @@ final class GameTest extends TestCase
         $this->bowling->roll(0);
         $this->rollStrike();
         $this->bowling->roll(1);
-        $this->bowling->roll(1);
+        $this->bowling->roll(2);
         $this->rollMany(16, 0);
 
-        self::assertSame(10 + 1 + 1 + 1, $this->bowling->score());
+        self::assertSame(10 + 1 + 1 + 2, $this->bowling->score());
     }
 
     /** @test */

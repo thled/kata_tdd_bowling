@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
-class Game
+final class Game
 {
+    /** @var array<int, int> */
     private array $rolls = [];
 
     public function roll(int $pins): void

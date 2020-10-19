@@ -17,20 +17,6 @@ final class GameTest extends TestCase
     }
 
     /** @test */
-    public function nothing(): void
-    {
-        self::assertTrue(true);
-    }
-
-    /** @test */
-    public function createBowlingGame(): void
-    {
-        $bowling = new Game();
-
-        self::assertInstanceOf(Game::class, $bowling);
-    }
-
-    /** @test */
     public function rollBall(): void
     {
         $this->bowling->roll(0);

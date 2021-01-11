@@ -1,21 +1,10 @@
-FROM php:7.4-fpm-alpine3.12
-
-ENV PATH="/home/phpuser/.composer/vendor/bin:${PATH}"
+FROM php:8.0.1-cli-alpine3.12
 
 # install utilities
-RUN apk add --no-cache \
-    php7-dev \
-    g++ \
-    make \
-    # create user
-    && adduser -D -g '' phpuser
+# RUN apk add --no-cache \
 
-# install xdebug from pecl
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    # deactivate xdebug as default
-    && echo "" > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && chown -R phpuser $(pecl config-get php_dir)
+# create user
+RUN adduser -D -g '' phpuser
 
 USER phpuser
 

@@ -17,7 +17,8 @@
 ## Usage
 
 - SSH into container: `$ docker-compose exec app sh`
-- Watch tests: `$ test-watch`
+  - Run tests: `$ run-test`
+  - Watch tests: `$ run-watch`
 
 ## Goal
 

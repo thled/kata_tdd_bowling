@@ -21,3 +21,8 @@ parameters:
         - '#^Method [^"]+ has parameter [^"]+ with null as default value.$#'
         - '#^Constructor in [^"]+ has parameter [^"]+ with default value.$#'
         - '#^Control structures using switch should not be used.$#'
+        # The following ignored errors are caused by the Pest Testframework.
+        - '#^Call to an undefined method Pest\\Expectations\\Expectation\|Pest\\Expectations\\Support\\Extendable::#'
+        -
+            message: '#Undefined variable: \$this$#'
+            path: tests/Pest.php

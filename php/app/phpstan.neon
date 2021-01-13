@@ -12,6 +12,7 @@ parameters:
         - 'tests'
     inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
+        - '#^Anonymous function should have native return typehint#'
         # The following ignored errors are from "ergebnis/phpstan-rules" and are too strict.
         - '#^Class "[^"]+" is not allowed to extend "[^"]+".$#'
         - '#^Method [^"]+ has a nullable return type declaration.$#'

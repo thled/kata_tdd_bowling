@@ -6,6 +6,7 @@ namespace App;
 
 final class Game
 {
+    /** @var array<int, int> */
     private array $rolls = [];
 
     public function roll(int $pins): void

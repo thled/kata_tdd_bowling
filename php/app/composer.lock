@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3bb8ec1e4d8bf9b127d6807696ecee1",
+    "content-hash": "8fe62f3e85870021de95651ae453cd29",
     "packages": [],
     "packages-dev": [
         {
@@ -3418,6 +3418,79 @@
                 }
             ],
             "time": "2020-07-12T23:59:07+00:00"
+        },
+        {
+            "name": "thled/pest-plugin-shorthands",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thled/pest-plugin-shorthands.git",
+                "reference": "f91946dae091fe12fb185c4662d7cc1c336bba43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thled/pest-plugin-shorthands/zipball/f91946dae091fe12fb185c4662d7cc1c336bba43",
+                "reference": "f91946dae091fe12fb185c4662d7cc1c336bba43",
+                "shasum": ""
+            },
+            "require": {
+                "pestphp/pest": "^1.0",
+                "pestphp/pest-plugin": "^1.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest-dev-tools": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Thled\\Shorthands\\": "src/"
+                },
+                "files": [
+                    "src/Shorthands.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Add shorthand functions for skipping and focusing tests.",
+            "keywords": [
+                "framework",
+                "pest",
+                "php",
+                "plugin",
+                "shorthand",
+                "test",
+                "testing",
+                "unit",
+                "xit",
+                "xtest"
+            ],
+            "support": {
+                "issues": "https://github.com/thled/pest-plugin-shorthands/issues",
+                "source": "https://github.com/thled/pest-plugin-shorthands/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-04-23T07:12:24+00:00"
         },
         {
             "name": "webmozart/assert",

@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^9.2",
-        "pestphp/pest": "^1.0"
+        "pestphp/pest": "^1.0",
+        "thled/pest-plugin-shorthands": "^1.0"
     },
     "autoload": {
         "psr-4": {
